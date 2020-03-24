@@ -47,12 +47,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const test = store.state.auth;
-  console.log(test);
   // eslint-disable-next-line dot-notation
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     // eslint-disable-next-line no-extra-boolean-cast
-    console.log('Authentication required');
     next();
   }
   next();
