@@ -1,7 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-undef */
-// eslint-disable-next-line import/no-cycle
-import { db } from '../plugins/firebase';
+import { db, auth } from '../plugins/firebase';
 import { hashEmail } from './helper';
 
 export async function fbsSignIn(email, password) {

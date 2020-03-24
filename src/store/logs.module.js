@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 import { FETCH_LOGS } from './actions.type';
+// eslint-disable-next-line import/no-cycle
 import { fbsFetchLogs } from '../utils/firebase.service';
 import { SET_LOGS } from './mutations.type';
 
