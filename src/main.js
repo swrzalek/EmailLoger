@@ -3,9 +3,9 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
-import Firebase from './plugins/firebase';
+import { auth } from './plugins/firebase';
+import { UPDATE_USER } from './store/actions.type';
 
-Vue.use(Firebase);
 
 Vue.config.productionTip = false;
 
@@ -14,4 +14,9 @@ new Vue({
   store,
   vuetify,
   render: (h) => h(App),
+  created() {
+    auth.onAuthStateChanged((user) => {
+      store.dispatch(UPDATE_USER, { user });
+    });
+  },
 }).$mount('#app');

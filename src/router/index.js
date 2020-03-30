@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import store from '../store';
+import { auth } from '../plugins/firebase';
 
 Vue.use(VueRouter);
 
@@ -19,16 +19,8 @@ const routes = [
   },
   {
     path: '/summary',
-    name: 'summary',
+    name: 'Panel',
     component: () => import('../views/Summary.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: '/email',
-    name: 'Email',
-    component: () => import('../views/EmailCreator.vue'),
     meta: {
       requiresAuth: true,
     },
@@ -47,10 +39,12 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  // eslint-disable-next-line dot-notation
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    // eslint-disable-next-line no-extra-boolean-cast
-    next();
+    if (auth.currentUser) {
+      next();
+    } else {
+      next({ name: 'Login' });
+    }
   }
   next();
 });

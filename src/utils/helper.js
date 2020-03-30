@@ -1,5 +1,6 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-bitwise */
+
 export const hashEmail = (email) => {
   let hash = 0; let i; let
     chr;
@@ -11,5 +12,6 @@ export const hashEmail = (email) => {
   }
   return Math.abs(hash).toString();
 };
+
 
 export default { hashEmail };

@@ -4,7 +4,7 @@
     <v-row>
       <v-col><span class="display-1 font-weight-thin">MAJKBUD SP. Z O. O</span></v-col>
       <v-col class="text-right">
-        <div>DATA SPORZĄDZENIA: 18.09.2020</div>
+        <div>DATA SPORZĄDZENIA: 21.03.2020</div>
         <div>OBOWIĄZUJE DO: 05.05.2020</div>
       </v-col>
     </v-row>
@@ -33,8 +33,7 @@
       </v-col>
         <v-col
       cols="12"
-      sm="10"
-      align-self="">
+      sm="10">
         <span
         class="title font-weight-regular">
           NA KOMPLEKSOWĄ WYMIANĘ WYKŁDZIN W POMIESZCZANIACH BIUROWYCH.
@@ -70,7 +69,7 @@
           <div>Wykładzina dywanowa pętelkowa w płytce 50x50cm 100% PA</div>
           <div>Montaż wykładziny w płytce z płynem</div>
           <div>Montaż listy cokołowej z listwą TLE 55</div>
-          <div>Demontaż, zdjęcie płytki z utylizacją</div>
+          <div>Zerwanie starej wykładziny z utylizacją.</div>
         </v-col>
           <v-col
           cols="12"
@@ -92,7 +91,7 @@
           <div>Wykładzina dywanowa w rulonie 100% PP</div>
           <div>Montaż wykładziny w rulonie</div>
           <div>Montaż listwy cokołowej z listwą TLE 55</div>
-          <div>Demontaż, zdjęcie płytki z utylizacją</div>
+          <div>Zerwanie starej wykładziny z utylizacją.</div>
 
         </v-col>
           <v-col

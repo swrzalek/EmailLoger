@@ -57,6 +57,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { fbsSignIn } from '../utils/firebase.service';
+
 
 export default {
   data: () => ({
@@ -66,7 +68,7 @@ export default {
   methods: {
     async handleSubmit() {
       // eslint-disable-next-line no-unused-vars
-      this.$auth.login(this.login, this.password);
+      fbsSignIn(this.login, this.password);
     },
   },
   computed: {

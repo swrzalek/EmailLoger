@@ -5,14 +5,9 @@
     <v-row>
         <v-col
            cols="12"
-           sm="8"
+           sm="12"
         >
             <data-table :logs="allLogs" />
-        </v-col>
-        <v-col
-        cols="12"
-        sm="4">
-            <card-button :data='card.generator'/>
         </v-col>
     </v-row>
     </v-container>
@@ -25,17 +20,9 @@ import { FETCH_LOGS } from '../store/actions.type';
 
 export default {
   data: () => ({
-    card: {
-      generator: {
-        icon: 'mdi-email-outline',
-        name: 'Generator',
-        path: '/email',
-      },
-    },
   }),
   components: {
     dataTable: () => import('../components/DataTable'),
-    cardButton: () => import('../components/CardButton'),
   },
   beforeRouteEnter(to, from, next) {
     store.dispatch(FETCH_LOGS).then(() => {

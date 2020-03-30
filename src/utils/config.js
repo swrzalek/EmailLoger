@@ -10,5 +10,5 @@ export const FIREBASE_CONFIG = {
   measurementId: 'G-EZXDN98DJH',
 };
 export const REDIRECT_URL = 'https://majkbud.pl';
-export const APP_URL = 'localhost:8080';
+export const APP_URL = 'https://lucid-lalande-17ed45.netlify.com';
 export default { FIREBASE_CONFIG, REDIRECT_URL, APP_URL };

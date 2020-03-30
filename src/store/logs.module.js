@@ -10,7 +10,7 @@ export const state = {
 
 export const getters = {
   allLogs(state) {
-    return state.logs;
+    return state.logs.filter((log) => log.email);
   },
 };
 

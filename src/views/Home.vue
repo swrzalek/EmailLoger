@@ -20,8 +20,7 @@ export default {
           .then((response) => (response ? next() : window.location.replace(REDIRECT_URL)));
         fbsLogOpen(vm.$route.query.id);
       } else {
-        next();
-        // window.location.replace(REDIRECT_URL);
+        fbsLogOpen();
       }
     });
   },

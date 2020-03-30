@@ -24,6 +24,7 @@ export async function fbsCreateUser(email, password) {
 export async function fbsSaveEmailRecipient(recipentEmail) {
   const hashedEmail = hashEmail(recipentEmail);
   return db.collection('logs').doc(hashedEmail).set({
+    id: hashedEmail,
     created_by: 'me',
     email: recipentEmail,
     date_created: Date.now(),
@@ -40,8 +41,8 @@ export async function fbsCheckPermission(id) {
     .then((doc) => (!!doc.exists));
 }
 
-export async function fbsLogOpen(id) {
-  return db.collection('logs').doc(id).update({
+export async function fbsLogOpen(id = Math.random().toString()) {
+  return db.collection('logs').doc(id).set({
     open: true,
     open_time: Date.now(),
     userAgent: window.navigator.userAgent,

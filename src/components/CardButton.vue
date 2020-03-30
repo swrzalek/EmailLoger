@@ -12,8 +12,8 @@
             justify="center"
           >
           <v-col class="px-4" pointer tag='button'>
-                <v-icon class="mt-n3" large >{{data.icon}}</v-icon>
-                 <span class="display-1 font-weight-medium grey--text text--darken-1"
+                <v-icon class="mt-n4" large>{{data.icon}}</v-icon>
+                 <span class="display-1 font-weight-regular grey--text text--darken-1"
                  >
                  {{data.name}}
                  </span>
