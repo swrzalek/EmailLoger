@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     link() {
-      return `${APP_URL}/id=${this.hash}`;
+      return `${APP_URL}/?id=${this.hash}`;
     },
   },
   methods: {
