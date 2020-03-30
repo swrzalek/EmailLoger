@@ -46,7 +46,7 @@ export async function fbsLogOpen(id = Math.random().toString()) {
     open: true,
     open_time: Date.now(),
     userAgent: window.navigator.userAgent,
-  });
+  }, { merge: true });
 }
 
 export async function fbsFetchLogs() {
