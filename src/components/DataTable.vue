@@ -1,67 +1,60 @@
 <template>
-  <v-data-table
-      :headers="headers"
-      :items="logs"
-      class="elevation-1"
-    >
-
-
-      <template v-slot:top>
-        <v-toolbar flat color="white">
-           <v-btn dark class="mb-2" @click="refresh">Odśwież</v-btn>
-           <alert-dialog :open="alertDialog"></alert-dialog>
-          <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="500px">
-            <template v-slot:activator="{ on }">
-              <v-btn color="primary" dark class="mb-2" v-on="on">Generuj nowy</v-btn>
-            </template>
-            <v-card>
-              <v-card-title>
-                <span class="headline">Utwórz link do śledzenia</span>
-              </v-card-title>
-
-                <v-form
-                v-model="valid"
-                ref="form"
-                >
-                  <v-container>
-                    <v-text-field :rules="emailRules"
-                    required
-                    outlined
-                    v-model="email" label="Email nadawcy"></v-text-field>
-                </v-container>
+  <v-data-table :headers="headers" :items="logs" class="elevation-1">
+    <template v-slot:top>
+      <v-toolbar flat color="white">
+        <v-btn dark class="mb-2" @click="refresh">
+          Odśwież
+        </v-btn>
+        <alert-dialog :open="alertDialog"> </alert-dialog>
+        <v-spacer></v-spacer>
+        <v-dialog v-model="dialog" max-width="500px">
+          <template v-slot:activator="{ on }">
+            <v-btn color="primary" dark class="mb-2" v-on="on">Generuj nowy</v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="headline">Utwórz link do śledzenia</span>
+            </v-card-title>
+            <v-form v-model="valid" ref="form">
+              <v-container>
+                <v-text-field
+                  :rules="emailRules"
+                  required
+                  outlined
+                  v-model="email"
+                  label="Email nadawcy"
+                ></v-text-field>
+              </v-container>
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" @click="dialog =! dialog" text>Anuluj</v-btn>
-                <v-btn color="blue darken-1"
-                 :disabled="!valid"
-                 @click="validate()"
-                 text >Zapisz</v-btn>
+                <v-btn color="blue darken-1" @click="dialog = !dialog" text>Anuluj</v-btn>
+                <v-btn color="blue darken-1" :disabled="!valid" @click="validate()" text
+                  >Zapisz</v-btn
+                >
               </v-card-actions>
-                </v-form>
-            </v-card>
-          </v-dialog>
-          <html-dialog :open="templateDialog"
-          :hash="content" @close="templateDialog = false"></html-dialog>
-        </v-toolbar>
-      </template>
-                 <template v-slot:item.open="{ item }">
-            <v-simple-checkbox v-model="item.open" disabled></v-simple-checkbox>
-          </template>
-          <template v-slot:item.actions="{ item }">
-        <v-icon
-          small
-          class="mr-2"
-          @click="setTemplate(item)"
-        >
-          mdi-eye
-        </v-icon>
-      </template>
-      <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize">Reset</v-btn>
-      </template>
-    </v-data-table>
+            </v-form>
+          </v-card>
+        </v-dialog>
+        <html-dialog
+          :open="templateDialog"
+          :hash="content"
+          @close="templateDialog = false"
+        ></html-dialog>
+      </v-toolbar>
+    </template>
+    <template v-slot:item.open="{ item }">
+      <v-simple-checkbox v-model="item.open" disabled></v-simple-checkbox>
+    </template>
+    <template v-slot:item.actions="{ item }">
+      <v-icon small class="mr-2" @click="setTemplate(item)">
+        mdi-eye
+      </v-icon>
+    </template>
+    <template v-slot:no-data>
+      <v-btn color="primary" @click="initialize">Reset</v-btn>
+    </template>
+  </v-data-table>
 </template>
 <script>
 import { fbsSaveEmailRecipient } from '../utils/firebase.service';
@@ -103,7 +96,9 @@ export default {
         this.dialog = false;
         this.email = '';
         this.alertDialog = true;
-        setTimeout(() => { this.alertDialog = false; }, 4000);
+        setTimeout(() => {
+          this.alertDialog = false;
+        }, 4000);
         return x;
       });
     },

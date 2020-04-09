@@ -2,25 +2,11 @@
 <template>
   <v-app id="inspire">
     <v-content>
-      <v-container
-        class="fill-height"
-        fluid
-      >
-        <v-row
-          align="center"
-          justify="center"
-        >
-          <v-col
-            cols="12"
-            sm="8"
-            md="4"
-          >
+      <v-container class="fill-height" fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
             <v-card class="elevation-12">
-              <v-toolbar
-                color="primary"
-                dark
-                flat
-              >
+              <v-toolbar color="primary" dark flat>
                 <v-toolbar-title>Login</v-toolbar-title>
                 <v-spacer />
               </v-toolbar>
@@ -31,7 +17,7 @@
                     name="login"
                     prepend-icon="mdi-lock"
                     type="text"
-                    v-model='login'
+                    v-model="login"
                   />
 
                   <v-text-field
@@ -40,7 +26,7 @@
                     name="password"
                     prepend-icon="mdi-lock"
                     type="password"
-                    v-model='password'
+                    v-model="password"
                   />
                 </v-form>
               </v-card-text>
@@ -56,35 +42,33 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { fbsSignIn } from '../utils/firebase.service';
-
+import { mapGetters } from "vuex";
+import { fbsSignIn } from "../utils/firebase.service";
 
 export default {
   data: () => ({
-    login: '',
-    password: '',
+    login: "",
+    password: ""
   }),
   methods: {
     async handleSubmit() {
       // eslint-disable-next-line no-unused-vars
       fbsSignIn(this.login, this.password);
-    },
+    }
   },
   computed: {
-    ...mapGetters(['user']),
+    ...mapGetters(["user"]),
     nextRoute() {
-      return 'summary';
-    },
+      return "summary";
+    }
   },
   watch: {
     user(auth) {
       // eslint-disable-next-line no-extra-boolean-cast
       if (!!auth.user) {
-        this.$router.push('summary');
+        this.$router.push("summary");
       }
-    },
-  },
-
+    }
+  }
 };
 </script>

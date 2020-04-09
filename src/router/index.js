@@ -25,11 +25,6 @@ const routes = [
       requiresAuth: true,
     },
   },
-  {
-    path: '/offer',
-    name: 'Offer',
-    component: () => import('../views/Offer.vue'),
-  },
 ];
 
 const router = new VueRouter({
